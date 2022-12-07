@@ -1,5 +1,5 @@
-tenserflow==2.11.0
-keras==3.7.2
-numpy==1.21.0
-opencv_python==4.6.0
-Pillow==9.3.0
+tenserflow>=2.0.0
+keras>=3.7.2
+numpy>=1.0.0
+opencv_python>=4.6.0
+Pillow>=9.0.0
