@@ -5,7 +5,10 @@ import numpy as np
 import cv2
 import time
 from keras.models import load_model
+import matplotlib
 
+
+matplotlib.use('Agg')
 
 window = Tk()
 window.title("Digit Recognition")
