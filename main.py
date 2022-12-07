@@ -1,14 +1,11 @@
 from tkinter import *
-# import tensorflow as tf
+import tensorflow as tf
 from PIL import ImageGrab
 import numpy as np
-# import cv2
+import cv2
 import time
-# from keras.models import load_model
-# import matplotlib
+from keras.models import load_model
 
-
-# matplotlib.use('Agg')
 
 window = Tk()
 window.title("Digit Recognition")
@@ -24,7 +21,7 @@ txt = Label(text='Please Write a digit...', font=(
     'consolas', 50, 'bold'), fg='green')
 txt.pack(side=BOTTOM)
 
-# model = load_model('digitrec2.h5')
+model = load_model('digitrec2.h5')
 
 pen_size = 10
 
@@ -59,18 +56,18 @@ def capture():
 
 
 def predict():
-    # showtext('predicting...')
-    # image = capture()
-    # image.save('photo.png')
-    # img = cv2.imread('photo.png')
-    # # image.show()
-    # gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    # resized = cv2.resize(gray, (28, 28))
-    # nimg = tf.keras.utils.normalize(resized, axis=1)
-    # nimg = np.array(nimg).reshape(1, 28, 28, 1)
-    # ans = np.argmax(model.predict(nimg))
+    showtext('predicting...')
+    image = capture()
+    image.save('photo.png')
+    img = cv2.imread('photo.png')
+    # image.show()
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    resized = cv2.resize(gray, (28, 28))
+    nimg = tf.keras.utils.normalize(resized, axis=1)
+    nimg = np.array(nimg).reshape(1, 28, 28, 1)
+    ans = np.argmax(model.predict(nimg))
 
-    showtext(f'You wrote a 🧐💭')
+    showtext(f'You wrote a "{ans}" 🧐💭')
 
 
 btn = Button(text='clear🗑', command=clear, font=(
